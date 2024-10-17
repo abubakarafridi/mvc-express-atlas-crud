@@ -9,7 +9,7 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 
-const mongoUri = process.env.MONGODB_LOCAL_URI;
+const mongoUri = process.env.MONGODB_ATLAS_URI;
 
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
