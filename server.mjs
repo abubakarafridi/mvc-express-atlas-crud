@@ -10,12 +10,8 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 
-const mongoUri = process.env.MONGODB_ATLAS_URI;
 
-mongoose.connect(mongoUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then (() => {
+mongoose.connect(process.env.MONGODB_ATLAS_URI).then (() => {
     console.log("Connected to MongoDB");
 }).catch(err => {
     console.error("error connecting to MongoDB", err.message)
