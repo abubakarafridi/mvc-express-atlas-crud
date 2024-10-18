@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import mongoose from "mongoose"
+import userRoutes from "./routers/userRoutes.mjs"
 import dotenv from "dotenv"
 
 dotenv.config();
@@ -20,11 +21,7 @@ mongoose.connect(mongoUri, {
     console.error("error connecting to MongoDB", err.message)
 })
 
-const userSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-})
-
+app.use('/api', userRoutes)
 
 app.listen(3000, () => {
     console.log("The port is listening on port 3000");
